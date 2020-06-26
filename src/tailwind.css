@@ -1,0 +1,226 @@
+@tailwind base;
+
+html,
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  @apply text-base;
+}
+
+.weather__info {
+  @apply flex;
+}
+
+.tab {
+  @apply .flex-auto .text-center;
+}
+
+.tab-switch {
+  @apply hidden;
+}
+
+.tab-label {
+  @apply cursor-pointer .relative;
+}
+
+.tab-switch + .tab-label:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #333;
+  height: 1px;
+  transition: all 450ms;
+}
+
+.tab + .tab-switch:checked {
+  @apply bg-blue-100;
+}
+
+.tab-switch:checked + .tab-label:after {
+  width: 100%;
+}
+
+.tab__content {
+  @apply absolute .w-full .left-0 pt-2 .text-left;
+  opacity: 0;
+  z-index: 1;
+  color: #2c3e50;
+}
+
+.tab-switch:checked + .tab-label {
+  transition: all 0.35s;
+}
+
+.tab-switch:checked + .tab-label + .tab__content {
+  z-index: 2;
+  opacity: 1;
+  animation: fadeIn;
+  animation-duration: 2s;
+  /* transition: all 0.35s; */
+}
+
+.info__item {
+  @apply flex-auto;
+}
+
+.temp__container input[name="temp_options"] {
+  opacity: 0;
+  width: 0;
+}
+
+input[name="temp_options"] + label{
+  @apply .border-0 .text-gray-700 .transition-all duration-500 ease-in-out
+}
+
+input[name="temp_options"] + label:after{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #333;
+  height: 2px;
+  transition: all 450ms;
+}
+
+input[name="temp_options"]:hover + label{
+  @apply .cursor-pointer
+}
+
+input[name="temp_options"]:checked + label{
+  @apply .text-black
+}
+
+input[name="temp_options"] + label:before{
+  content: "\00b0"
+}
+
+input[name="temp_options"]:checked + label:after{
+  width: 100%
+}
+
+#temp__id {
+  --animation-duration: 3.5s;
+  --animate-delay: 0.5s;
+}
+
+.card__container--hourly {
+  @apply flex .flex-col .w-full;
+}
+
+.card__content {
+  @apply flex .flex-auto .items-center .justify-around
+}
+
+.card__content--daily {
+  @apply px-3 .py-2 .border-b-2 .border-gray-300;
+}
+
+.card__content--hourly {
+  @apply p-2 .border-b-2 .border-gray-300;
+}
+
+.card__content--hourly:last-of-type {
+  @apply border-b-0 .items-center
+}
+
+.card__title--date {
+  @apply bg-gray-300 .w-full .p-2 .flex;
+}
+
+.card__dt {
+  @apply flex .flex-col .text-sm
+}
+
+.card__dt--hr {
+  @apply .flex-auto .items-center
+}
+
+.card__image {
+  @apply flex-initial;
+  width: 50px;
+  height: 50px;
+}
+
+.card__image img {
+  height: 100%;
+  margin: 0 auto;
+}
+
+.card__image--hr {
+  min-width: 50px
+}
+
+.card__temp {
+  @apply text-sm
+}
+
+.card__temp--hourly {
+  @apply flex .flex-col .flex-auto .items-center
+}
+
+.tab__content {
+  height: 200px;
+}
+
+.temp__switch--fah:after {
+  content: "\00b0 F";
+  margin-left: 2px
+}
+
+.temp__switch--cel:after {
+  content: "\00b0 C";
+  margin-left: 2px;
+}
+
+.daily__temp--night,
+.daily__temp--morn {
+  text-align: center;
+}
+
+.daily__temp--night {
+  background: #000;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+}
+
+#Rays {
+  animation: spin 10s linear infinite;
+  transform-origin: center;
+
+}
+
+@keyframes spin {
+  0% { 
+   transform: rotate(0deg);
+  }
+  100% {
+   transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .weather__features {
+    height: 450px;
+  }
+
+  .tab__content {
+    height: 450px;
+  }
+
+  #temp__id {
+    font-size: 7rem;
+  }
+}
+
+@tailwind components;
+
+@tailwind utilities;

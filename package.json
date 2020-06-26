@@ -1,0 +1,20 @@
+{
+  "name": "weather_me",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss build src/tailwind.css -o dist/style.css",
+    "start": "node src/api.js"
+  },
+  "keywords": [],
+  "author": "Ohlie",
+  "license": "ISC",
+  "dependencies": {
+    "animate.css": "^4.1.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "tailwindcss": "^1.4.5"
+  }
+}
