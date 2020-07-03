@@ -9,7 +9,7 @@ const openweathermap = `https://api.openweathermap.org/data/2.5/`;
 app.use(express.static('dist'));
 
 app.listen(port, () => {
-  console.log(`Listening`);
+  console.log(`Start`);
 });
 
 app.get('/weather/:location', async (request, response) => {
