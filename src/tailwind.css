@@ -192,6 +192,33 @@ input[name="temp_options"]:checked + label:after{
   border-radius: 5px;
 }
 
+.weather__section {
+  transform: scale(1,0);
+  transform-origin: top;
+  height: 0px;
+}
+
+.loading {
+  transform: scale(0, 0);
+  transform-origin: center;
+  height: 0;
+  transition: transform 1s ease-in;
+}
+
+.loading svg {
+  height: 0;
+}
+
+.show_loading,
+.show_weather {
+  transform: scale(1, 1);
+  height: auto;
+}
+
+.show_loading svg {
+  height: 100px;
+}
+
 #Rays {
   animation: spin 10s linear infinite;
   transform-origin: center;

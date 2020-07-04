@@ -93,6 +93,7 @@ showData = data => {
       max_temp.classList = ' ';
       min_temp.classList = ' ';
 
+  document.querySelector('.weather__section').classList.add('show_weather');
   document.querySelector('.weather__section').classList.remove('opacity-0');
   document.querySelector('.weather__section').classList.add('animate__fadeIn');
   document.querySelector('.weather__features').classList.remove('opacity-0');
@@ -280,11 +281,13 @@ showData = data => {
 
 howstheweather = (locationInput, unit) => {
 
-  document.querySelector('.loading').classList.remove('opacity-0');
+  document.querySelector('.loading').classList.add('show_loading');
+  document.querySelector('.weather__section').classList.remove('show_weather');
+  document.querySelector('.weather__section').classList.add('opacity-0');
 
   openweatherAPI(locationInput,unit)  
     .then(response => {
-        document.querySelector('.loading').classList.add('opacity-0', 'hidden');
+        document.querySelector('.loading').classList.remove('show_loading');
         showData(response);
     })
     .catch(err => console.log(err))
